@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
@@ -31,7 +32,8 @@
 
         <div class="post-list">
 
-            <div v-for = 'post in myProfile.posts' class="post">
+            <div v-for = '(post, index) in myProfile.posts' class="post">
+                <div class="delete-post" @click="delete_post(index)"><i class="far fa-trash-alt"></i></div>
                 <div class="post-details">
                     <div class="user-pic">
                         <img :src="myProfile.details.pic" alt="user pic">

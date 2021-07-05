@@ -59,6 +59,10 @@ new Vue(
                         return dateTimeNow.format("DD/MM/YYYY HH:mm:ss");
             
                       },  
+                      delete_post: function (index){
+                        this.myProfile.posts.splice(index, 1);
+                 
+                    },
              },  
 
             
