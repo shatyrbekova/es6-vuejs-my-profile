@@ -39,9 +39,10 @@ new Vue(
             addNewPost:function(){
 
                     let newObject={
+                        //aggiungiamo un nuovo messaggio scritto v-model  di posts(this)
                         text: this.create_new_post,
                         date: this.getCurrentDateTime(),
-                    },
+                    };
     
                     this.myProfile.posts.push(newObject);
                     this.create_new_post='';
