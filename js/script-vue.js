@@ -36,29 +36,34 @@ new Vue(
         methods:{
 
             //Per creare un nuovo msg, creiamo una funzione con push.
-            addNewPost:function(){
+            addNewPost: function(){
 
-                    let newObject={
-                        //aggiungiamo un nuovo messaggio scritto v-model  di posts(this)
-                        text: this.create_new_post,
-                        date: this.getCurrentDateTime(),
-                    };
-    
-                    this.myProfile.posts.push(newObject);
-                    this.create_new_post='';
-                
+                      
+                        this.myProfile.posts.push({
+                            text: this.create_new_post,
+                            date: this.getCurrentDateTime(),
+                        })
+                    
+                    //aggiungiamo un nuovo messaggio che è scritto in v-model (create_new_post) ;
+                        
+                        this.create_new_post='';
+                       
+                    },
+                      
+                  
+                    getCurrentDateTime: function(){ //Per avere la datetime  usiamo day.js
+            
+                        //creiamo una variabile costante
+                        const dateTimeNow = dayjs();
+                        //scriviamo il seguente codice, applicando format 
+                        return dateTimeNow.format("DD/MM/YYYY HH:mm:ss");
+            
+                      },  
              },  
 
-             getCurrentDateTime: function(){ //Per avere la datetime  usiamo day.js
             
-                //creiamo una variabile costante
-                const dateTimeNow = dayjs();
-                //scriviamo il seguente codice, applicando format 
-                return dateTimeNow.format("DD/MM/YYYY HH:mm:ss");
-    
-              },  
            
-     }
+
     }
  
 );

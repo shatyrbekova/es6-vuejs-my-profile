@@ -70,3 +70,32 @@ data.myProfile.posts.forEach((post) => {
 
     postListHtml.innerHTML += `<div class="post"> ${postHtml} </div>`
 })
+// Stampare un nuovo messaggio
+
+document.querySelector(".send").addEventListener('click', function (){
+
+   data.myProfile.posts.push({
+
+    text: this.create_new_post,
+    date: '01/07/2021',
+   })
+   var inputElement=document.getElementById('createNewPost').value;
+
+   let addPost= `
+    <div class="post-details"> 
+        <div class="user-pic">
+            <img src="${data.myProfile.details.pic}" alt="user pic">
+        </div>
+        <div class="details">
+            <div class="user-name">${data.myProfile.details.name} ${data.myProfile.details.surname}</div>
+            
+        </div>
+    </div> 
+    <div class="post-text">
+        ${inputElement}
+    </div>`;
+    postListHtml.innerHTML += addPost;
+   
+})
+
+
