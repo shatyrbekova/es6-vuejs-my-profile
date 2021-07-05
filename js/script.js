@@ -70,16 +70,27 @@ data.myProfile.posts.forEach((post) => {
 
     postListHtml.innerHTML += `<div class="post"> ${postHtml} </div>`
 })
+
+//Creare la data e l'ora attuale con il dayjs
+
+// function getDateTime(){
+//     const dateTimeNow =dayjs();
+//     return dateTimeNow.format("DD/MM/YYYY HH:mm:ss");
+// }
 // Stampare un nuovo messaggio
+
 
 document.querySelector(".send").addEventListener('click', function (){
 
-   data.myProfile.posts.push({
+    var inputElement=document.querySelector('#createNewPost').value;
+    let dateTimeNow =dayjs().format("DD/MM/YYYY HH:mm:ss");
 
-    text: this.create_new_post,
-    date: '01/07/2021',
+    data.myProfile.posts.push({
+    text: inputElement.value,
+    date: dateTimeNow,
    })
-   var inputElement=document.getElementById('createNewPost').value;
+
+
 
    let addPost= `
     <div class="post-details"> 
@@ -88,14 +99,14 @@ document.querySelector(".send").addEventListener('click', function (){
         </div>
         <div class="details">
             <div class="user-name">${data.myProfile.details.name} ${data.myProfile.details.surname}</div>
-            
+             <div class="post-date"> ${dateTimeNow}
         </div>
     </div> 
     <div class="post-text">
         ${inputElement}
     </div>`;
     postListHtml.innerHTML += addPost;
-   
+    inputElement.value='';
 })
 
 
