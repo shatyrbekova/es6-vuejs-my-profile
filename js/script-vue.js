@@ -46,7 +46,7 @@ new Vue(
                     
                     //aggiungiamo un nuovo messaggio che è scritto in v-model (create_new_post) ;
                         
-                        this.create_new_post='';
+                        this.create_new_post=''; //Cosi il textarea ritorna vuoto 
                        
                     },
                       
@@ -59,8 +59,8 @@ new Vue(
                         return dateTimeNow.format("DD/MM/YYYY HH:mm:ss");
             
                       },  
-                      delete_post: function (index){
-                        this.myProfile.posts.splice(index, 1);
+                      delete_post: function (index1){
+                        this.myProfile.posts.splice(index1, 1);
                  
                     },
              },  
